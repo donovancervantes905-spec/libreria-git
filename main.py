@@ -1,16 +1,16 @@
 """
 main.py - Punto de entrada principal para ejecutar Galaxy Striker.
-Inicializa el entorno de Pygame, la ventana principal, el reloj de cuadros
-por segundo (FPS) y el ciclo principal de eventos del juego.
+Compatible tanto con ejecución nativa de escritorio como en navegador web (Pygbag / WebAssembly).
 """
 
 import sys
+import asyncio
 import pygame
 from config import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, TITLE
 from game import Game
 
 
-def main():
+async def main():
     # Inicialización de Pygame
     pygame.init()
     pygame.display.set_caption(TITLE)
@@ -41,10 +41,13 @@ def main():
         pygame.display.flip()
         clock.tick(FPS)
         
+        # Cede el control al navegador web en WebAssembly (imprescindible para Pygbag)
+        await asyncio.sleep(0)
+        
     # Salida limpia del programa
     pygame.quit()
     sys.exit()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

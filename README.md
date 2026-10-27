@@ -11,7 +11,8 @@ El proyecto está diseñado bajo una arquitectura limpia y modularizada para fac
 ```
 space_shooter/
 │
-├── main.py              # Punto de entrada y bucle principal
+├── index.html           # Versión Web jugable directamente en navegador / GitHub Pages
+├── main.py              # Punto de entrada (compatible con escritorio y Pygbag/WASM)
 ├── config.py            # Constantes, configuraciones y balance del juego
 ├── game.py              # Máquina de estados, oleadas, HUD y colisiones
 ├── player.py            # Nave del jugador, movimiento, vidas y escudos
@@ -21,6 +22,8 @@ space_shooter/
 ├── particles.py         # Fondo de estrellas (paralaje) y explosiones
 ├── sounds.py            # Síntesis procedural de efectos de sonido
 ├── requirements.txt     # Dependencias del proyecto (pygame)
+├── .github/workflows/
+│   └── deploy.yml       # Automatización para compilar y desplegar en GitHub Pages
 └── README.md            # Documentación completa del proyecto
 ```
 
@@ -128,7 +131,25 @@ space_shooter/
 
 ---
 
-## 🛠️ Instalación y Ejecución
+## 🌐 Cómo Jugar en el Navegador Web (GitHub Pages)
+
+El proyecto incluye dos métodos para jugarse en línea sin instalar nada en tu computadora:
+
+### Método Instantáneo con GitHub Pages (Recomendado):
+1. Sube los archivos a tu repositorio de GitHub.
+2. En tu repositorio de GitHub, haz clic en **Settings** (Configuración) > **Pages** (en el menú lateral izquierdo).
+3. En **Build and deployment** > **Source**, selecciona **Deploy from a branch**.
+4. Elige la rama `main` (o `master`) y la carpeta `/ (root)`, luego pulsa **Save**.
+5. En 1 minuto, GitHub te dará un enlace público:
+   `https://<tu-usuario>.github.io/<tu-repositorio>/`
+   *(¡Ábrelo en tu navegador y juega directamente con `index.html`!)*
+
+### Método Local Inmediato:
+- También puedes hacer **doble clic directamente en el archivo `index.html`** en tu computadora para abrirlo en Chrome, Edge o Firefox y jugar sin instalar Python.
+
+---
+
+## 🛠️ Instalación y Ejecución de la Versión Python (Escritorio)
 
 ### 1. Requisitos Previos
 Tener instalado **Python 3.8 o superior** (descargable desde [python.org](https://www.python.org/downloads/)).
